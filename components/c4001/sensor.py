@@ -27,7 +27,8 @@ async def to_code(config):
     await uart.register_uart_device(var, config)
 
     # ✅ Fix: Properly register a callback function
-    cg.add(var.set_rx_callback(cg.lambda_("const std::vector<uint8_t> &data", """
+cg.add(var.set_rx_callback(cg.RawExpression("""
+    [](const std::vector<uint8_t> &data) {
         std::string received(data.begin(), data.end());
         if (!received.empty()) {
             size_t pos = received.find("distance: ");
@@ -37,4 +38,5 @@ async def to_code(config):
                 obj->publish_state(distance);
             }
         }
-    """)))
+    }
+""")))
