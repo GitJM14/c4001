@@ -20,7 +20,7 @@ CONFIG_SCHEMA = (
             cv.Required(CONF_NAME): cv.string,
         }
     )
-    .extend(uart.UARTDevice.UART_DEVICE_SCHEMA)
+    .extend(uart.UARTDevice.UART_DEVICE_SCHEMA.schema) # Corrected line
 )
 
 async def to_code(config):
