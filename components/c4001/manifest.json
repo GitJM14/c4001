@@ -1,7 +1,7 @@
 {
+    "domain": "c4001",
     "name": "C4001 Sensor",
-    "version": "1.0",
-    "dependencies": [],
     "requirements": [],
-    "codeowners": []
+    "dependencies": ["uart"],
+    "codeowners": ["@GitJM14"]
 }
