@@ -1,1 +1,1 @@
-from .c4001_sensor import *
+from .sensor import *
